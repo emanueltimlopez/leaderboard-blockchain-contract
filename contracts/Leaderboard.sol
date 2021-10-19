@@ -27,7 +27,7 @@ contract Leaderboard {
       seed = randomNumber;
 
       if (randomNumber < 50) {
-        uint256 prizeAmount = 0.0010 ether;
+        uint256 prizeAmount = 0.0001 ether;
         require(
             prizeAmount <= address(this).balance,
             "Trying to withdraw more money than the contract has."

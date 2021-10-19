@@ -7,7 +7,7 @@ const main = async () => {
 
   const Token = await hre.ethers.getContractFactory('Leaderboard')
   const portal = await Token.deploy({
-    value: hre.ethers.utils.parseEther('0.100')
+    value: hre.ethers.utils.parseEther('0.010')
   })
   await portal.deployed()
 
