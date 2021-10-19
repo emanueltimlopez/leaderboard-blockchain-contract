@@ -1,25 +1,27 @@
 const main = async () => {
-  const [deployer] = await hre.ethers.getSigners();
-  const accountBalance = await deployer.getBalance();
+  const [deployer] = await hre.ethers.getSigners()
+  const accountBalance = await deployer.getBalance()
 
-  console.log('Deploying contracts with account: ', deployer.address);
-  console.log('Account balance: ', accountBalance.toString());
+  console.log('Deploying contracts with account: ', deployer.address)
+  console.log('Account balance: ', accountBalance.toString())
 
-  const Token = await hre.ethers.getContractFactory('Leaderboard');
-  const portal = await Token.deploy();
-  await portal.deployed();
+  const Token = await hre.ethers.getContractFactory('Leaderboard')
+  const portal = await Token.deploy({
+    value: hre.ethers.utils.parseEther('0.100')
+  })
+  await portal.deployed()
 
-  console.log('Leaderboard address: ', portal.address);
+  console.log('Leaderboard address: ', portal.address)
 };
 
 const runMain = async () => {
   try {
-    await main();
-    process.exit(0);
+    await main()
+    process.exit(0)
   } catch (error) {
-    console.error(error);
-    process.exit(1);
+    console.error(error)
+    process.exit(1)
   }
 };
 
-runMain();
+runMain()
